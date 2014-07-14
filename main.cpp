@@ -5,12 +5,17 @@
 #include "ReserveOperatorTaskManager.h"
 #include "ReserveSchemaTaskManager.h"
 #include <iostream>
+#include "Logger.h"
+
 
 using namespace std;
 
 int main()
 {
-	std::cout<<"AUTOCALLER"<<std::endl;
+	LoggerCall lgc;
+	//lgc.LogMsg("Test");
+
+
 	CallViewer cv;
 	TaskLoader tl;
 	
