@@ -1,20 +1,22 @@
 #include <iostream>
 #include "./EventReader/EventReader.h"
+#include "./Logger/LogManager.h"
+#include "./Logger/Logger.h"
 #include "CallViewer.h"
 #include "TaskLoader.h"
 #include "ReserveOperatorTaskManager.h"
 #include "ReserveSchemaTaskManager.h"
 #include <iostream>
-#include "Logger.h"
+
 
 
 using namespace std;
 
 int main()
 {
-	LoggerCall lgc;
-	//lgc.LogMsg("Test");
-
+	LogManager lm;
+	BoostLoggerInFile lg("autocaller_%N.log");
+	lm.AddLogger(&lg);
 
 	CallViewer cv;
 	TaskLoader tl;
@@ -23,7 +25,6 @@ int main()
 	SimpleTaskManager stm;
 	ReserveOperatorTaskManager rotm;
 	ReserveSchemaTaskManager rstm;
-	//stm.CreateTask({"84996474040","84996474040","84996474040"},{"063816101","063816102","063816103"},"000963224","0638161004996478049","063816101","Test Task");
 	
 	tl.AddManager(&rstm);
 	cv.AddManager(&rstm);
