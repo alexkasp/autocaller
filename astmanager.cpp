@@ -42,7 +42,6 @@ AsteriskManager::AsteriskManager()
 int AsteriskManager::call(std::string from,std::string to,std::string outline,std::string schema)
 {
 	try{
-		init();
 	std::string command = "Action: Originate\r\nChannel: SIP/"+to+"@"+outline+"\r\nExten: "+schema+"\r\nContext: vatscallback\r\nPriority: 1\r\nCallerID: "+from+"\r\nVariable: CALLERID(dnid)="+to+",CALLERID(num)="+to+"\r\nActionID: 2\r\n\r\n";
     
 	_sock->write_some(buffer(command,command.size()));
