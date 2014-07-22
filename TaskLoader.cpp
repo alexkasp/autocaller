@@ -72,6 +72,7 @@ void TaskLoader::ParseTask(socket_ptr sock)
 				if(x!=managers.end())
 				{
 					TaskManagerInterface* tmi = x->second;
+					tmi->CleanTask();
 					int taskindex = tmi->CreateTask(nums,operators,caller,schema,outline,taskname);
 					tmi->Start(taskindex);
 				}

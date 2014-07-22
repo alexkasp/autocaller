@@ -1,5 +1,18 @@
 #include "TaskManagerInterface.h"
 
+int TaskManagerInterface::CleanTask()
+{
+	for(auto x = Tasks.begin();x!=Tasks.end();)
+	{
+		if(x->IsComplete())
+			x = Tasks.erase(x);
+		else
+			++x;
+	}
+
+	return Tasks.size();
+}
+
 void TaskManagerInterface::BeginCallHandle(std::string num,std::string calluniqueid)
 {
 	for(auto x = Tasks.begin();x!=Tasks.end();++x)
@@ -28,6 +41,11 @@ int TaskManagerInterface::CreateTask(std::vector<std::string> _nums,std::vector<
 	return Tasks.size();		
 }
 
+int TaskManagerInterface::CreateTask(Task& newtask)
+{
+	Tasks.push_back(newtask);
+	return Tasks.size();
+}
 
 TaskManagerInterface::TaskManagerInterface()
 {

@@ -2,7 +2,7 @@
 #include "../Task.h"
 #include <string>
 #include <vector>
-#define MYTESTCASE 
+
 
 TEST(Test_Task_class,check_init_func_with_correct)
 {

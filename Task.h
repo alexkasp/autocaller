@@ -36,7 +36,7 @@ class Task
 		{};
 		const std::string GetNextNumber();
 		const std::string GetFreeOperator();
-
+		const int IsComplete() const;
 		const std::string GetSchema(){return schema;}
 		const std::string GetCaller(){return caller;}
 		const std::string GetOutLine(){return outline;}

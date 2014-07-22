@@ -1,6 +1,11 @@
 #include "Task.h"
 #include <iostream>
 
+const int Task::IsComplete() const
+{
+	return nums.size()<=currentnum;
+}
+
 
 int Task::IncOperatorCalls(std::string worker,std::string call)
 {
@@ -50,15 +55,17 @@ int Task::GetFreeOperators()
 }
 const std::string Task::GetNextNumber()
 {
+	if(IsComplete())
+		return "";
+
 	int size = nums.size();
 	auto x = nums.begin();
-	int startposition = currentnum;
 	do
 	{
 		std::advance(x,currentnum);
-		currentnum = (currentnum+1)%size;
+		++currentnum;
 		
-		if((startposition==currentnum)&&(x->second>0))
+		if((currentnum>=size)&&(x->second>0))
 			return "";
 
 	}while(x->second>0);
