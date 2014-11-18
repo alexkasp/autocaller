@@ -5,8 +5,12 @@
 int main()
 {
 
+
     AsteriskManager manager;
-    manager.call("063816103","89263137506");
-    sleep(2000);
+    while(1)
+    {
+	manager.call("063816103","89263137506","000950896");
+	sleep(60);
+    }
     return 1;
 }

@@ -48,7 +48,7 @@ int AsteriskManager::call(std::string from,std::string to,std::string outline,st
     
 	_sock->write_some(buffer(command,command.size()));
 	boost::asio::read_until(*_sock, response, "\r\n");
-	deinit();
+	//deinit();
 	}
 	catch (std::exception& e)
 		  {
