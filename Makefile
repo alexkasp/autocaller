@@ -12,7 +12,9 @@ default: ${EVENTREADERDIR}/parser.o ${EVENTREADERDIR}/eventreader.o ${LOGGERDIR}
 	-lboost_filesystem -lboost_system -lboost_regex -lboost_date_time -lboost_thread -Wl,-Bdynamic -lrt -lm -lcurl -ggdb
 test:
 	g++ ${TESTDIR}/test.cpp ${TESTDIR}/testTaskManagerInterface.cpp -o test -lgtest -lpthread 
-
+testcall:
+	g++ calltester.cpp astmanager.cpp -o calltest -L /usr/local/boost/lib/ -Wl,-Bstatic -lboost_log -lboost_log_setup \
+	-lboost_filesystem -lboost_system -lboost_regex -lboost_date_time -lboost_thread -Wl,-Bdynamic -lrt -lm -lcurl
 debug: parser.o eventreader.o
 	
 	g++ main.cpp  ${EVENTREADERDIR}/parser.o ${EVENTREADERDIR}/eventreader.o CallViewer.cpp astmanager.cpp Task.cpp TaskManagerInterface.cpp \

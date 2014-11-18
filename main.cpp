@@ -8,7 +8,7 @@
 #include "ReserveSchemaTaskManager.h"
 #include <iostream>
 
-
+#define AUTOCALLER_VERSION "0.1"
 
 using namespace std;
 
@@ -16,6 +16,7 @@ int main()
 {
 	LogManager lm;
 	BoostLoggerInFile lg("autocaller_%N.log");
+	lm.PutLog(AUTOCALLER_VERSION);
 	lm.AddLogger(&lg);
 
 	CallViewer cv;

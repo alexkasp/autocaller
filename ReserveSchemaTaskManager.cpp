@@ -8,7 +8,7 @@ int ReserveSchemaTaskManager::EndCall(Task& x)
 		std::string newnumber = x.GetNextNumber();
 		std::string schema = x.GetSchema();
 		if(newnumber.size()>0)
-			manager.call(freeoperator,newnumber,schema);
+			manager.call(x.GetCaller(),newnumber,schema);
 		return 1;
 	}
 	return 0;
@@ -26,7 +26,7 @@ int ReserveSchemaTaskManager::StartTask(std::vector<Task>::iterator& x)
 
 		if(number.size()>0)
 		{
-			manager.call(freeoperator,number,schema);
+			manager.call(x->GetCaller(),number,schema);
 			startedcalls++;
 		}
 	}
