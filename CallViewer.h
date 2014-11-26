@@ -7,7 +7,8 @@ class CallViewer: public ExecuterInterface
 {
 	
 	std::vector<TaskManagerInterface*> managers;
-
+	int FinishCallHandler(const ParamMap& data);
+	int AnswerCallHandler(const ParamMap& data);
 	public:
 		CallViewer();
 		~CallViewer();
