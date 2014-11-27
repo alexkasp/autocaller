@@ -50,7 +50,7 @@ int CallViewer::Execute(ParamMap& data)
 	}
 	if(data.find("Event:")->second == "UserEvent")
 	{
-		if(data.find("UserEvent:")->second=="answercall")
+		if(data.find("UserEvent:")->second=="initcall")
 		{	
 			AnswerCallHandler(data);
 		}

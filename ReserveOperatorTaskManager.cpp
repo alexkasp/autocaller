@@ -26,6 +26,7 @@ int ReserveOperatorTaskManager::StartTask(std::vector<Task>::iterator& x)
 		if(number.size()>0)
 		{
 			manager.call(freeoperator,number);
+			sleep(1);
 			startedcalls++;
 		}
 	}
