@@ -2,11 +2,15 @@
 
 #include <iostream>
 
-int CallViewer::AnswerCallHandler(const ParamMap& data)
+int CallViewer::AnswerCallHandler(const ParamMap& data,std::string eventname)
 {
 	std::cout << "Recieve data (answer):" << data.find("src")->second << "  callid:" << data.find("callid")->second << std::endl;
 	for (auto x = managers.begin(); x != managers.end(); x++)
 	{
+		if ((eventname == "answercall") && ((*x)->GetStrategyCode() == 2))
+			continue;
+		if ((eventname == "initcall") && ((*x)->GetStrategyCode() == 1))
+			continue;
 		(*x)->BeginCallHandle(data.find("src")->second, data.find("callid")->second);
 		(*x)->BeginCallHandle(data.find("dst")->second, data.find("callid")->second);
 	}
@@ -52,7 +56,11 @@ int CallViewer::Execute(ParamMap& data)
 	{
 		if(data.find("UserEvent:")->second=="initcall")
 		{	
-			AnswerCallHandler(data);
+			AnswerCallHandler(data,"initcall");
+		}
+		if (data.find("UserEvent:")->second == "answercall")
+		{
+			AnswerCallHandler(data,"answercall");
 		}
 		if(data.find("UserEvent:")->second=="finishcall")
 		{
