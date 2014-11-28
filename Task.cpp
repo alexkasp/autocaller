@@ -25,19 +25,19 @@ int Task::IncOperatorCalls(std::string worker,std::string call)
 }
 int Task::DecOperatorCalls(std::string worker,std::string call)
 {
-	auto x = operators.find(worker);
-	if(x != operators.end())
-	{
 		auto callentry = calls.find(call);
 		if(callentry!=calls.end())
 		{
 			calls.erase(callentry);
-			(*x).second--;
-			
+			auto x = operators.find(worker);
+			if (x != operators.end())
+			{
+				(*x).second--;
+			}
 			return 1;
 		}
-	}
-	return 0;
+	
+		return callentry != calls.end();
 }
 
 
