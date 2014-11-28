@@ -31,6 +31,7 @@ class Task
 		int GetFreeOperators();
 		
 		int IncOperatorCalls(std::string,std::string);
+		int IncNumCalls(std::string, std::string);
 		int DecOperatorCalls(std::string,std::string);
 		int DecNumCalls(std::string, std::string);
 		Task():started(0),wasinited(0)

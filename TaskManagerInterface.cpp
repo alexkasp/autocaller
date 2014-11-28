@@ -17,7 +17,8 @@ void TaskManagerInterface::BeginCallHandle(std::string num,std::string calluniqu
 {
 	for(auto x = Tasks.begin();x!=Tasks.end();++x)
 	{
-		(*x).IncOperatorCalls(num,calluniqueid);
+		if (!(*x).IncOperatorCalls(num, calluniqueid))
+			(*x).IncNumCalls(num, calluniqueid);
 	}
 }
 

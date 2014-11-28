@@ -23,6 +23,18 @@ int Task::DecNumCalls(std::string num, std::string call)
 	return 0;
 }
 
+int Task::IncNumCalls(std::string num, std::string call)
+{
+	auto x = nums.find(num);
+	if (x != nums.end())
+	{
+		(*x).second++;
+		calls.insert(std::pair<std::string, std::string>(call, num));
+		return 1;
+	}
+	return 0;
+}
+
 int Task::IncOperatorCalls(std::string worker,std::string call)
 {
 	auto x = operators.find(worker);
