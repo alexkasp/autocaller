@@ -32,7 +32,7 @@ class Task
 		
 		int IncOperatorCalls(std::string,std::string);
 		int DecOperatorCalls(std::string,std::string);
-		int DecNumsCall(std::string, std::string);
+		int DecNumCalls(std::string, std::string);
 		Task():started(0),wasinited(0)
 		{};
 		const std::string GetNextNumber();

@@ -6,13 +6,13 @@ const int Task::IsComplete() const
 	return nums.size()<=currentnum;
 }
 
-int Task::DecNumsCall(std::string num, std::string call)
+int Task::DecNumCalls(std::string num, std::string call)
 {
 	auto callentry = calls.find(call);
 	if (callentry != calls.end())
 	{
 		calls.erase(callentry);
-		auto x = nums.find(worker);
+		auto x = nums.find(num);
 		if (x != nums.end())
 		{
 			(*x).second--;
