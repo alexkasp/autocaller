@@ -25,4 +25,3 @@ int SimpleTaskManager::StartTask(std::vector<Task>::iterator& x)
 	}
 	return startedcalls;
 }
-

@@ -29,6 +29,11 @@ int TaskManagerInterface::EndCallHandle(std::string num,std::string calluniqueid
 		{
 			 return EndCall(*x);
 		}
+		else if ((*x).DecNumCalls(num, calluniqueid))
+		{
+			return EndCall(*x);
+		}
+
 	}
 	return 0;
 }

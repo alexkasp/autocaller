@@ -21,7 +21,7 @@ class TaskManagerInterface
 		int CleanTask();
 		virtual ~TaskManagerInterface(){};
 		void BeginCallHandle(std::string num,std::string calluniqueid);
-		int EndCallHandle(std::string num,std::string calluniqueid);
+		virtual int EndCallHandle(std::string num,std::string calluniqueid);
 		int CreateTask(std::vector<std::string> _nums,std::vector<std::string> _operators,std::string _caller,std::string _schema,std::string _outline,std::string _TaskName);
 		int CreateTask(Task& tsk);
 		virtual int EndCall(Task& x) = 0;
