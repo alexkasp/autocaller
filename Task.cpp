@@ -37,7 +37,7 @@ int Task::DecOperatorCalls(std::string worker,std::string call)
 			return 1;
 		}
 	
-		return callentry != calls.end();
+		return 0;
 }
 
 
