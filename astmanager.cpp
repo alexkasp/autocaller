@@ -56,6 +56,23 @@ int AsteriskManager::call(std::string from,std::string to,std::string outline,st
 		  }
 }
 
+int AsteriskManager::callsimple(std::string from,std::string to,std::string outline,std::string schema)
+{
+	try{
+		boost::asio::streambuf response;
+		init();
+	std::string command = "Action: Originate\r\nChannel: Local/"+to+"@vatsautocallsimple\r\nExten: "+schema+"\r\nContext: vatscallback\r\nPriority: 1\r\nCallerID: "+from+"\r\nVariable: CALLERID(dnid)="+to+",Outline="+outline+",CALLERID(num)="+to+"\r\nActionID: 2\r\n\r\n";
+    
+	_sock->write_some(buffer(command,command.size()));
+	boost::asio::read_until(*_sock, response, "\r\n");
+	//deinit();
+	}
+	catch (std::exception& e)
+		  {
+			std::cout<<"CATCH EXCEPTION!!! AsteriskManager::call(std::string from,std::string to,std::string outline,std::string schema)" << e.what() << '\n';
+		  }
+}
+
 int AsteriskManager::call(std::string from,std::string to)
 {
 	try{

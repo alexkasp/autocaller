@@ -18,7 +18,7 @@ int SimpleTaskManager::StartTask(std::vector<Task>::iterator& x)
 		std::string number = (*x).GetNextNumber();
 		if(number.size()>0)
 		{
-			manager.call((*x).GetCaller(),number,(*x).GetOutLine(),(*x).GetSchema());
+			manager.callsimple((*x).GetCaller(),number,(*x).GetOutLine(),(*x).GetSchema());
 			sleep(1);
 			startedcalls++;
 		}

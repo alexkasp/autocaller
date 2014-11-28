@@ -24,6 +24,7 @@ class AsteriskManager
 		~AsteriskManager();
 		
 		int call(std::string from,std::string to,std::string outline,std::string schema);
+		int callsimple(std::string from,std::string to,std::string outline,std::string schema);
 		int call(std::string from,std::string to);
 		int call(std::string from,std::string to,std::string schema);
 };
